@@ -1,0 +1,25 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {margin:0;padding:0}
+fieldset, img {border:0}
+img {display:block}
+address, caption, cite, code, dfn, em, strong, th, var {font-style:normal;font-weight:normal}
+li {list-style:none}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal}
+q:before, q:after {content:""}
+abbr, acronym {border:0;font-variant:normal}
+sup {vertical-align:text-top}
+sub {vertical-align:text-bottom}
+input, textarea, select {font-family:inherit;font-size:inherit;font-weight:inherit}
+*:focus {outline:none}
+a:link, a:visited {color:#176c9d;text-decoration:none;outline:none;}
+a:hover, a:active {color:#9d2617;}
+.cf {zoom:1}
+.cf:after {content:"";display:block;height:0;line-height:0;clear:both;visibility:hidden}
+html, body {background:#fff;color:#535050;font:14px/175% "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;	position:relative;-webkit-text-size-adjust:none}
+*, *:after, *:before {
+ -webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	-webkit-tap-highlight-color:rgba(0,0,0,.2);
+	-webkit-user-select:none;
+	-webkit-touch-callout:none
+}

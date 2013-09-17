@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* header */
+#header {
+	background:#f84e27;
+	position:relative;
+}
+h1 {
+	background-size:80px auto !important;
+	margin:0 0 0 1em;
+	background:url(../../images/color/logo.png) no-repeat left center;
+	line-height:2.5em;
+	overflow:hidden;
+	text-indent:-9999em;
+}
+#weather {
+	color:#fff;
+	height:2.5em;
+	position:absolute;
+	right:0.5em;
+	top:0;
+}
+/*content*/
+.content {
+	padding:0.5em 0;
+}
+.content h2 {
+	color:#1668ad;
+	font-weight:bold;
+}
+.content p {
+	text-indent:2em;
+	padding:0 1em 0 1em;
+}
+#plat > div {
+	background:url(../../images/color/plat_arrow.png) 8px center no-repeat;
+	background-size:5px auto;
+	text-indent:1.2em;
+}
+#plat {
+	margin:0 0 0.5em 0;
+}
+/* box */
+.box h2 {
+	background:#e7e7e7 url(../../images/color/h2_bg.png) 0.5em center no-repeat;
+	background-size:auto 14px;
+	border-bottom:1px solid #f84e27;
+	color:#524f4e;
+	font:bold 1em/220% "";
+	text-indent:1em;
+}
+.newst h2 {
+	background:#e7e7e7 url(../../images/color/star.png) 0.5em center no-repeat;
+	background-size:auto 15px;
+	border-bottom:none;
+	border-top:1px solid #f84e27;
+	text-indent:1.8em;
+}
+.box dl, .box ul {
+	padding:0.5em;
+}
+.box dl dt {
+	font-weight:bold;
+}
+.box p {
+	padding:0.5em 0.5em 0 0.5em;
+	text-indent:2em;
+}
+.noIndent p {
+	text-indent:0;
+}
+.box table {
+	border:0;
+	border-collapse:collapse;
+	margin:1em auto;
+	width:95%;
+}
+.box table tr td {
+	border:1px solid #f1f1f1;
+	padding:4px;
+	text-align:center;
+}
+.box h3 {
+	color:#551919;
+	padding:0.5em;
+}
+.box h3 strong, .box h3 i {
+	display:block;
+}
+.box h3 i {
+	font:normal 12px/120% "";
+}
+/* down */
+.down > div {
+	padding:10px;
+	border-top:1px solid #f1f1f1;
+}
+.down > div > h3 {
+	background:url(../../images/color/down.png) right center no-repeat;
+	background-size:9px auto;
+	display:inline-block;
+	padding-right:1em;
+}
+/* footer */
+#nav {
+	background:#f84e27;
+	text-align:center;
+}
+#nav a:link, #nav a:visited, #nav span {
+	color:#fff;
+}
+#nav a.active:link, #nav a.active:visited {
+	color:#650f0f;
+}
+#footer p {
+	text-align:center;
+}
+@media screen and (device-width:240px) {
+body {
+	font-size:0.8em;
+}
+}
