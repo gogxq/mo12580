@@ -3,10 +3,10 @@ package cn.com.umessage.mo.service.impl;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -15,39 +15,58 @@ import org.apache.commons.codec.binary.Base64;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import cn.com.umessage.mo.domain.WeatherDetail;
+import cn.com.umessage.mo.domain.WeatherResponse;
 import cn.com.umessage.mo.domain.WeatherResult;
 import cn.com.umessage.mo.service.WeatherSearchService;
 import cn.com.umessage.mo.utils.HttpUtils;
 import cn.com.umessage.mo.utils.WeatherCache;
 
+
+
 @Service("weatherSearch")
 public class WeatherSearchServiceImpl implements WeatherSearchService {
 
+private static final Logger logger = LoggerFactory.getLogger(WeatherSearchServiceImpl.class);
+	
 	private String WEATHER_SEARCH_URL = "http://strategy.intra.umessage.com.cn:8180/WebDataHandler/weather.search?vt=2&pid=u05";
 	private Integer days = 1;
 	
+	
 	@Override
-	public String getWeather(String city_id) {
+	public WeatherResponse getWeather(String city_id) {
 		
-		String weatherPic = WeatherCache.getWeatherInfo(city_id);
+		WeatherResponse weatherInfo = WeatherCache.getWeatherInfo(city_id);
 		
-		if(weatherPic == null || weatherPic.equals("")){
+		if(weatherInfo == null){
 			String weatherInfoXml = getWeatherByCityId(city_id);
 			WeatherResult result = weatherStrToXML(weatherInfoXml);
-			weatherPic = result.getWeatherList().get(0).getBigimage().get(0);
-			WeatherCache.setWeatherInfo(city_id, weatherPic);
-			System.out.println("=========== no weather cache ======");
+			WeatherDetail detail = result.getWeatherList().get(0);
+			WeatherResponse weather_info = new WeatherResponse();
+			weather_info.setCityid(detail.getCityid());
+			weather_info.setCity_name(detail.getCname());
+			//气温
+			String[] temperature = detail.getTemperature().split("/");
+			weather_info.setMax_temperature(temperature[0]);
+			weather_info.setMin_temperature(temperature[1]);
+			weather_info.setWeatherPicList(detail.getBigimage());
+			
+			WeatherCache.setWeatherInfo(city_id, weather_info);
+			logger.info("=========== no weather cache ======");
+			return weather_info;
 		}
-		return weatherPic;
+		return weatherInfo;
 	}
 	
 	@Override
 	public String getWeatherByCityId(String city_id) {
 		StringBuilder uri = getUri();
 		uri.append("&lci=" + city_id);
+		logger.info(uri.toString());
 		String result = HttpUtils.fromRemoteStr(uri.toString(), "utf-8");
 		return result;
 	}
@@ -57,6 +76,7 @@ public class WeatherSearchServiceImpl implements WeatherSearchService {
 	}
 	
 	public WeatherResult weatherStrToXML(String resultXML) {
+		//logger.info(">>>>>>>>>>>>>"+resultXML);
 		WeatherResult weather_res = new WeatherResult();
 		try {
 			List<WeatherDetail> list = new ArrayList<WeatherDetail>();
@@ -150,7 +170,10 @@ public class WeatherSearchServiceImpl implements WeatherSearchService {
 				List<String> tinyimage = new ArrayList<String>();
 				for (int ii = 0; ii < weathers.length; ii++) {
 					String image = Base64.encodeBase64String(weathers[ii].getBytes("UTF-8")).replaceAll("/", "#") + ".png";
+					//String image = Base64.encodeBase64String(weathers[ii].getBytes()).replaceAll("/", "#") + ".png";
 					image = URLEncoder.encode(image, "UTF-8").replaceAll("%2B", "");
+					logger.info(new String(weathers[ii].getBytes()));
+					logger.info(Base64.encodeBase64String(weathers[ii].getBytes()));
 					// 转化小写
 					char[] zimu = image.toCharArray();
 					for (int i = 0; i < zimu.length; i++) {
@@ -195,4 +218,5 @@ public class WeatherSearchServiceImpl implements WeatherSearchService {
 		}
 		return data;
 	}
+
 }

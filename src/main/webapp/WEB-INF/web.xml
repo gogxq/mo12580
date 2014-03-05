@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
+  <context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>com.umessage.server.cache</param-value>
+	</context-param>
+  
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/applicationContext.xml</param-value>
@@ -17,6 +19,139 @@
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>download_forward</servlet-name>
+  	<jsp-file>/download_forward.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>download_forward</servlet-name>
+  	<url-pattern>/a/*</url-pattern>
+  </servlet-mapping> 
+  
+  
+<servlet>
+<servlet-name>dxos</servlet-name>
+<servlet-class>com.DXOS</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>dxos</servlet-name>
+<url-pattern>/dxos</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>zt</servlet-name>
+<servlet-class>com.ZT</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>zt</servlet-name>
+<url-pattern>/zt</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>ln</servlet-name>
+<servlet-class>com.LN</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ln</servlet-name>
+<url-pattern>/ln</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>e</servlet-name>
+<servlet-class>com.E</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>e</servlet-name>
+<url-pattern>/e</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>m</servlet-name>
+<servlet-class>com.M</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>m</servlet-name>
+<url-pattern>/m</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>n</servlet-name>
+<servlet-class>com.N</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>n</servlet-name>
+<url-pattern>/n</url-pattern>
+</servlet-mapping>
+<!-- add by 2011-05-16 -->
+<!--
+<servlet>
+<servlet-name>a</servlet-name>
+<servlet-class>com.A</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>a</servlet-name>
+<url-pattern>/a</url-pattern>
+</servlet-mapping>
+-->
+<servlet>
+<servlet-name>b</servlet-name>
+<servlet-class>com.B</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>dl</servlet-name>
+<servlet-class>cn.com.umessage.mo.servlet.Download</servlet-class>
+</servlet>
+
+
+<servlet-mapping>
+<servlet-name>dl</servlet-name>
+<url-pattern>/dl</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>dll</servlet-name>
+<servlet-class>cn.com.umessage.mo.servlet.Download</servlet-class>
+</servlet>
+
+
+<servlet-mapping>
+<servlet-name>dll</servlet-name>
+<url-pattern>/dll</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>b</servlet-name>
+<url-pattern>/b</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>c</servlet-name>
+<servlet-class>com.C</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>c</servlet-name>
+<url-pattern>/c</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>d</servlet-name>
+<servlet-class>com.D</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>d</servlet-name>
+<url-pattern>/d</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>f</servlet-name>
+<servlet-class>com.F</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>f</servlet-name>
+<url-pattern>/f</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>g</servlet-name>
+<servlet-class>com.G</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>g</servlet-name>
+<url-pattern>/g</url-pattern>
+</servlet-mapping> 
+  
   
   <context-param>
     <param-name>log4jConfigLocation</param-name>
@@ -44,4 +179,12 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+    <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  
+  <welcome-file-list>
+  	<welcome-file>index.do</welcome-file>
+  </welcome-file-list>
 </web-app>

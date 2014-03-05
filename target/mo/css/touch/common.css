@@ -19,7 +19,10 @@ h1 {
 	height:2.5em;
 	position:absolute;
 	right:0.5em;
-	top:0;
+	top:4px;
+}
+#weather img {
+	width:30px;
 }
 /*banner*/
 .banner {
@@ -80,10 +83,14 @@ h1 {
 	font-weight:bold;
 }
 .whiteBox dl dd {
-	line-height:2em;
+	line-height:1.5em;
 	border-bottom:1px dashed #cdc9c9;
 	background:url(../../images/touch/go_arrow.png) no-repeat right center;
 	background-size:18px auto;
+	padding:0.25em 0;
+}
+.whiteBox dl dd a{
+	padding:0 0.6em 0 0;
 }
 .whiteBox dl.noLink dd {
 	background:none;

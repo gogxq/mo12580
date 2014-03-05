@@ -77,6 +77,14 @@
 			<version>1.6.4</version>
 		</dependency>
 
+		<!-- XML2Bean -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-digester3</artifactId>
+			<version>3.2</version>
+			<classifier>with-deps</classifier>
+		</dependency>
+
 		<!-- JSON -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>

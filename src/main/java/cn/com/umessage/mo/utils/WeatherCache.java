@@ -3,25 +3,28 @@ package cn.com.umessage.mo.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WeatherCache {
+import cn.com.umessage.mo.domain.WeatherResponse;
 
-	private static Map<String,String> weatherInfo = new HashMap<String,String>();
+
+public class WeatherCache {
+	
+	private static Map<String,WeatherResponse> weatherInfoMap = new HashMap<String,WeatherResponse>();
 	//读写标志
 	private static volatile boolean flag = false;
 	
-	public static String getWeatherInfo(String key){
+	public static WeatherResponse getWeatherInfo(String key){
 		while(flag){}
-		return weatherInfo.get(key);
+		return weatherInfoMap.get(key);
 	}
 	
-	public static void setWeatherInfo(String cityid,String weatherPic){
+	public static void setWeatherInfo(String cityid,WeatherResponse weatherInfo){
 		while(flag){}
-		weatherInfo.put(cityid, weatherPic);
+		weatherInfoMap.put(cityid, weatherInfo);
 	}
 	
 	public static void removeWeatherInfo(){
 		flag = true;
-		weatherInfo.clear();
+		weatherInfoMap.clear();
 		flag = false;
 	}
 }

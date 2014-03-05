@@ -24,7 +24,7 @@ public class DownloadServiceImpl implements DownloadService {
 	public void download_android(String version,String channel,HttpServletResponse response) {
 		String filename = "";
 		if(channel == null || channel.equals("")){
-			if(version.equals("2_6_5") || version.equals("2_6_4")){
+			if(version.equals("2_6_9") || version.equals("2_6_8") || version.equals("2_6_7") ||version.equals("2_6_6") ||version.equals("2_6_5") || version.equals("2_6_4")){
 				filename = "12580_android_" + version + "_A001.apk";
 			}else if(version.equals("2_6_3") ||version.equals("2_6_2") || version.equals("2_6_1")){
 				filename = "12580_android_" + version + ".apk"; 
@@ -41,7 +41,7 @@ public class DownloadServiceImpl implements DownloadService {
 	public void download_iphone(String version,String channel,HttpServletResponse response) {
 		String filename = "";
 		if(channel == null || channel.equals("")){
-			if(version.equals("2.6.5")){
+			if(version.equals("2.6.9") || version.equals("2.6.8") || version.equals("2.6.7") || version.equals("2.6.5") || version.equals("2.6.6")){
 				filename = "12580_" + version + "_a003.ipa";
 			}
 		}else{

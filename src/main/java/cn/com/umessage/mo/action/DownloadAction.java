@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.com.umessage.mo.domain.WeatherResponse;
 import cn.com.umessage.mo.service.DownloadService;
 import cn.com.umessage.mo.service.GetCityService;
 import cn.com.umessage.mo.service.VersionAdapterService;
@@ -25,8 +26,8 @@ import cn.com.umessage.mo.utils.RemoteIpUtils;
 @Controller
 public class DownloadAction {
 	
-	private static final String ANDROID_NEWEST_VERSION = "2_6_5";
-	private static final String IPHONE_NEWEST_VERSION = "2.6.5";
+	private static final String ANDROID_NEWEST_VERSION = "2_6_9";
+	private static final String IPHONE_NEWEST_VERSION = "2.6.9";
 	
 	@Autowired
 	private VersionAdapterService versionService;
@@ -51,9 +52,12 @@ public class DownloadAction {
 		String view = version + "/down";
 		String ip = RemoteIpUtils.getIp(request);
 		String cityId = cityService.getCityByIP(ip);
-		String weatherPic = weatherService.getWeather(cityId);
+		//String weatherPic = weatherService.getWeather(cityId);
 		ModelMap model = new ModelMap();
-		model.addAttribute("weatherPic", weatherPic);
+		WeatherResponse weatherInfo = weatherService.getWeather(cityId);
+		model.addAttribute("weatherInfo", weatherInfo);
+		model.addAttribute("weatherPic", weatherInfo.getWeatherPicList().get(0));
+		//model.addAttribute("weatherPic", weatherPic);
 		model.addAttribute("channel",channel);
 		model.addAttribute("contextPath", contextPath);
 		model.addAttribute("action","");

@@ -6,23 +6,25 @@
   240x320<br>
   320x480<br>
   480x800 <br>
-  支持系统:Android2.1及以
+  支持系统:Android2.1及以上
  </p>
 </div>
 <div class="down">
- <div>
-  	<h3><a href="downloadbyversion.do?version=2_6_5&channel=${channel}">下载2.6.5</a></h3>
+<div>
+  	<h3><a href="downloadbyversion.do?version=2_6_9&channel=${channel}">下载2.6.9</a></h3>
    <p>
-   软件大小：3.9MB<br>
-   更新时间：2013-03-29
+   软件大小：4.40MB<br>
+   更新时间：2014-02-12
    </p>
  </div>
- <div>
-  	<h3><a href="downloadbyversion.do?version=2_6_4&channel=${channel}">下载2.6.4</a></h3>
+<div>
+  	<h3><a href="downloadbyversion.do?version=2_6_8&channel=${channel}">下载2.6.8</a></h3>
    <p>
-   软件大小：3.1MB<br>
-   更新时间：2013-01-18
+   软件大小：4.54MB<br>
+   更新时间：2014-01-07
    </p>
  </div>
+
+ 
 </div>
 <#include "footer.ftl">

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
+import cn.com.umessage.mo.domain.WeatherResponse;
 import cn.com.umessage.mo.domain.WeatherResult;
 import cn.com.umessage.mo.service.GetCityService;
 import cn.com.umessage.mo.service.VersionAdapterService;
@@ -48,10 +49,14 @@ public class IndexAction {
 		logger.info("cityId:"+cityId);
 		
 		//天气图片
-		String weatherPic = weatherService.getWeather(cityId);
+		//String weatherPic = weatherService.getWeather(cityId);
 		
 		ModelMap model = new ModelMap();
-		model.addAttribute("weatherPic", weatherPic);
+		
+		WeatherResponse weatherInfo = weatherService.getWeather(cityId);
+		model.addAttribute("weatherInfo", weatherInfo);
+		model.addAttribute("weatherPic", weatherInfo.getWeatherPicList().get(0));
+		//model.addAttribute("weatherPic", weatherPic);
 		model.addAttribute("contextPath", contextPath);
 		model.addAttribute("channel",channel);
 		

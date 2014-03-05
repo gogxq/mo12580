@@ -17,7 +17,10 @@ h1 {
 	height:2.5em;
 	position:absolute;
 	right:0.5em;
-	top:0;
+	top:4px;
+}
+#weather img {
+	width:28px;
 }
 /*content*/
 .content {
