@@ -1,0 +1,106 @@
+h1 {
+	font:1.2em/220% "";
+	border-bottom:1px solid #ccc;
+	color:#000;
+	margin:0 0.5em;
+	text-align:center;
+	text-shadow:0 1px 0 rgba(255,255,255,.9);
+}
+.button {
+	text-align:center;
+	padding:0.5em 0 0 0;
+}
+.button a {
+	display: inline-block;
+	outline: none;
+	text-align: center;
+	font: 1em/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 2px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fff;
+	border:0;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#689CD2), to(#4188D2));
+}
+.box {
+	background:#fff;
+	margin:0.5em;
+	-webkit-box-shadow:0 2px 3px rgba(0,0,0,.2);
+}
+.box h2 {
+	background-image: -webkit-linear-gradient(top, rgb(255,255,255) 0%, rgb(245,245,245) 100%);
+	border-bottom:1px solid #f90;
+	color:#f60;
+	line-height:200%;
+	text-indent:0.5em;
+}
+.box p, .box ol {
+	font:1em/120% "";
+	padding:0.5em 0.5em;
+}
+.box p span, .box li span {
+	color:#f90;
+}
+.box p i {
+	font-style:normal;
+	color:#62e200;
+}
+.box ol li {
+	margin:0 0 0.5em 0;
+}
+.box a:link, .box a:visited {
+	color:#33479a;
+	text-decoration:underline;
+}
+.padbox {
+	padding-bottom:0.5em;
+}
+table {
+	border-collapse:collapse;
+	margin:0.5em 0.5em 0 0.5em;
+}
+th {
+	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
+	font:0.8em/180% "";
+	text-align:center;
+	background:#fff5eb;
+	white-space:nowrap;	
+}
+td {
+	background:#fbfbfb;
+	font:0.8em/120% "";
+	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
+	padding:0.3em 0 0.3em 0.1em;
+	vertical-align:top;
+}
+th:last-child, td:last-child {
+	border-right:0;
+}
+.pic img {
+	width:100%;
+}
+.user {
+	padding:0.5em 0;
+}
+.user p.name {
+	line-height:120%;
+	padding:0 0.5em;
+}
+.user p.name span {
+	color:#f90;
+	font-size:0.9em;
+}
+.user p.win {
+	background:url(../images/win.png) center 0 no-repeat;
+	background-size:71px auto;
+	height:32px;
+	line-height:999em;
+	overflow:hidden;
+}
+.user+.box {
+	margin-top:0;
+}

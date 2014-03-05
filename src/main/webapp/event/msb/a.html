@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>“12580幸福美食帮”活动</title>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" media="screen" type="text/css" href="private/res/css/global.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="private/res/css/active.css" />
+<style>
+.box form [type="text"] {
+	background:#fff;
+	border:1px solid #ccc;
+	height:2em;
+	text-indent:0.5em;
+	width:100%;
+	-webkit-user-select:text;
+}
+.box form .button a:link,.box form .button a:visited {
+	color:#fff;
+	text-decoration:none;
+}
+</style>
+<script type="text/javascript">
+function baoming(){
+	var isPhone=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0-9])\d{8}$/i;
+	var isyidong=/^1(3[4-9]|47|5[012789]|8[23478])\d{8}$/i;
+	var phone=document.getElementById("phone").value;
+	if(!isPhone.test(phone)){
+		document.getElementById("tishi").innerHTML="请输入正确的手机号码";
+//		alert("请输入正确的手机号码");
+		return;
+	}
+	if(!isyidong.test(phone)){
+		document.getElementById("tishi").innerHTML="请输入移动号";
+//		alert("只有移动号码才能参加，请输入移动号码");
+		return;
+	}
+//	if(phone==""||phone==null){
+//               document.getElementById("tishi").innerHTML="请输入正确的手机号";
+//                return;
+//        }
+	document.getElementById("tijiao").submit();
+}
+</script>
+</head>
+
+<body>
+<h1>“12580幸福美食帮”活动</h1>
+<div class="box">
+	<h2>活动主题</h2>
+	<p>－“12580幸福美食帮”</p>
+</div>
+<div class="box">
+	<h2>活动时间</h2>
+	<p>－2012年12月10日－2013年2月28日</p>
+</div>
+<div class="box">
+	<h2>活动对象</h2>
+	<p>－中国移动用户</p>
+</div>
+<div class="box">
+	<h2>活动地点</h2>
+	<p>－广州、杭州、北京、成都、武汉</p>
+</div>
+<div class="box">
+	<h2>参与方式</h2>
+	<p>方式一：下载12580客户端注册成为会员，点击活动页面报名参加“12580幸福美食帮-五节幸福之旅”活动。</p>
+	<p>方式二：关注@中国移动12580新浪官方微博，转发指定活动内容并@三位好友，说出五个城市中你最想去的城市。</p>
+  <p><span>提醒：报名之前请注册为12580客户端会员。</span></p>
+	</ol>
+</div>
+<div class="box">
+	<h2>参加活动</h2>
+ <form action="happiness_success.html" method="get" id="tijiao">
+    <p id="tishi"></p>
+    <p><input type="text" class="autoclear" title="请输入您的手机号码" value="" maxlength="11" name="phone" id="phone"></p>
+    <p>
+      <input id="wh" name="city" type="radio" value="26010000" checked><label for="wh">武汉</label>
+      <input id="bj" name="city" type="radio" value="10000000" disabled><label for="bj">北京</label>
+      <input id="cd" name="city" type="radio" value="32010000" disabled><label for="cd">成都</label>
+      <input id="gz" name="city" type="radio" value="28010000" disabled><label for="gz">广州</label>
+      <input id="hz" name="city" type="radio" value="20010000" disabled><label for="hz">杭州</label>
+    </p>
+    <p>
+         注：北京、成都、广州、杭州的活动已结束
+    </p>
+    <p class="button"><a href="javascript:;" onclick="baoming()">报名</a></p>
+  </form>
+</div>
+</body>
+</html>

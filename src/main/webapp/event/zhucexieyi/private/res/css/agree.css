@@ -1,0 +1,17 @@
+.box {
+	background:#fff;
+	border:1px solid #cacaca;
+	border-radius:0.4em;
+	color:#333;
+	padding:0.5em;
+	margin:5px;
+}
+.box h1 {
+	border-bottom:1px solid #cacaca;
+	font:bold 1.1em/200% "";
+	margin:0 0 1em 0;
+	text-align:center;
+}
+.box p {
+	margin:0 0 1em 0;
+}
